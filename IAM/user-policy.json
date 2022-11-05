@@ -1,0 +1,16 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "IpAddressIfExists": {
+                    "aws:SourceIp": ["${terraform_private_ip_address}"],
+                    "aws:VpcSourceIp": ["${terraform_private_ip_address}"]
+                }
+            }
+        }
+    ]
+}

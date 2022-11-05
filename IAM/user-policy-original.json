@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:VpcSourceIp": [
+                        "10.0.0.0/8",
+                        "10.36.50.182/32"
+                    ],
+                    "aws:SourceIp": [
+                        "9.9.9.9/32",
+                        "8.8.8.8/32"
+                    ]
+                }
+            }
+        }
+    ]
+}
